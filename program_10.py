@@ -159,12 +159,12 @@ def GetMonthlyStatistics(DataDF):
     
     ## Create DataFrame and Calculations
     MoDataDF=pd.DataFrame(columns=col_name)
-    MoDataDF['site_no']=DataDF['site_no'].resample('M').mean()
-    MoDataDF['Mean Flow']=DataDF['Discharge'].resample('M').mean()
-    MoDataDF['Coeff Var']=(DataDF['Discharge'].resample('M').std()/
-            DataDF['Discharge'].resample('M').mean()*100)
-    MoDataDF['Tqmean']=DataDF['Discharge'].resample('M').apply(CalcTqmean)
-    MoDataDF['R-B Index']=DataDF['Discharge'].resample('M').apply(CalcRBindex)
+    MoDataDF['site_no']=DataDF['site_no'].resample('MS').mean()
+    MoDataDF['Mean Flow']=DataDF['Discharge'].resample('MS').mean()
+    MoDataDF['Coeff Var']=(DataDF['Discharge'].resample('MS').std()/
+            DataDF['Discharge'].resample('MS').mean()*100)
+    MoDataDF['Tqmean']=DataDF['Discharge'].resample('MS').apply(CalcTqmean)
+    MoDataDF['R-B Index']=DataDF['Discharge'].resample('MS').apply(CalcRBindex)
     
     return ( MoDataDF )
 
