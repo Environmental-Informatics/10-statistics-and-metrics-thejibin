@@ -132,8 +132,6 @@ def GetAnnualStatistics(DataDF):
     col_name=['site_no', 'Mean Flow', 'Peak Flow', 'Median Flow','Coeff Var','Skew','Tqmean',
                  'R-B Index', '7Q', '3xMedian']
     ## Create index and DataFrame
-    #data_yearly=DataDF.resample('AS-OCT').mean()
-    #WYDataDF=pd.DataFrame(index=data_yearly.index,columns=col_name)
     WYDataDF=pd.DataFrame(columns=col_name)
     
     ## Calculate the statistics
@@ -159,9 +157,7 @@ def GetMonthlyStatistics(DataDF):
     ## Create column name
     col_name=['site_no', 'Mean Flow', 'Coeff Var','Tqmean','R-B Index']
     
-    ## Create index and DataFrame
-    #data_monthly=DataDF.resample('M').mean()
-    #MoDataDF=pd.DataFrame(index=data_monthly.index,columns=col_name)
+    ## Create DataFrame and Calculations
     MoDataDF=pd.DataFrame(columns=col_name)
     MoDataDF['site_no']=DataDF['site_no'].resample('M').mean()
     MoDataDF['Mean Flow']=DataDF['Discharge'].resample('M').mean()
