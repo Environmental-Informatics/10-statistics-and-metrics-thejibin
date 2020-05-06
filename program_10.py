@@ -252,7 +252,7 @@ if __name__ == '__main__':
     ## Use concat so that each file contain data for both rivers
     annual_average_metrics=pd.concat([AnnualAverages['Wildcat'],AnnualAverages['Tippe']],axis=0)
     monthly_average_metrics=pd.concat([MonthlyAverages['Wildcat'],MonthlyAverages['Tippe']],axis=0)
-    annual_average_metrics.to_csv('Average_Annual_Metrics.csv',sep='\t')
-    monthly_average_metrics.to_csv('Average_Monthly_Metrics.csv',sep='\t')
+    annual_average_metrics.to_csv('Average_Annual_Metrics.txt',sep='\t')
+    monthly_average_metrics.to_csv('Average_Monthly_Metrics.txt',sep='\t')
     
     
